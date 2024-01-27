@@ -1,0 +1,14 @@
+.hero-tab{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:100px;
+
+    
+}
+
+.search-unit{
+    background-color: #fff;
+    margin-right:50px;  
+}
