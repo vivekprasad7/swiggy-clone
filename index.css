@@ -1,0 +1,8 @@
+@import-normalize; /* bring in normalize.css styles */
+
+/* rest of app styles */
+
+body, html{
+    margin: 0;
+    padding:0;
+}
