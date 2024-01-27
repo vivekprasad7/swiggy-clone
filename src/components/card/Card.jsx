@@ -11,6 +11,7 @@ const Card = ({item}) => {
         <img src={imageURL+item?.info?.cloudinaryImageId} alt="" />
         <p>{item?.info?.name}</p>
         <p>Locality: {item?.info?.locality}</p>
+        <p>Rating: {item?.info?.avgRating}</p>
     </div>
   )
 }

@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '../card/Card'
 import "./Restaurant.css"
 
 const Restaurant = () => {
-
     const resObject = {"restaurants": [
         {
           "info": {
@@ -880,24 +879,24 @@ const Restaurant = () => {
         }
     ]
     }
-    console.log("ResObject", resObject)
 
-    const resData = JSON.stringify(resObject)
-    console.log("ResStringified", resData)
+    const [ resData, setResData] = useState(resObject?.restaurants)
+    const [filterData, setFilterData] = useState(resObject?.restaurants)
 
-    const parsedData = JSON.parse(resData)
-    console.log("ResParsed", parsedData)
-
-
-    console.log(parsedData?.restaurants)
+    
+    const filterByRating = () => {
+        let filteredRestaurants = resData.filter((item) => item?.info?.avgRating > 4)
+        setFilterData(filteredRestaurants)
+    }
 
 
   return (
     <div className='restaurant'>
+        <button onClick={() => filterByRating()}>Filter</button>
         {
-            resObject?.restaurants?.map((item) => {
+            filterData?.map((item) => {
                 console.log(item)
-                return(<Card item={item}/>)
+                return(<Card key={item?.info?.id}item={item}/>)
         
         })
         }
