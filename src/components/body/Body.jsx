@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Body.css";
 import Card from "../card/Card";
-import { FETCH_URL } from "../../utils/constants";
+import { FETCH_URL } from "../../utils/constants.js";
 
 const Body = () => {
   
@@ -36,10 +36,10 @@ const Body = () => {
 
     console.log("JSON", json)
 
-    setResData(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilterData(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setResData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilterData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
-    console.log("Fetch", json?.data?.cards[5]?.card?.card?.brands)
+    console.log("Fetch", json?.data?.cards[4]?.card?.card?.brands)
   }
 
   return (
