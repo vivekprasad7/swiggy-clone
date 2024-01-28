@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { FETCH_URL } from "../../utils/constants.js";
+import { FETCH_INFO } from "../../utils/constants.js";
 import { useParams } from 'react-router-dom';
 
 const RestaurantInfo = () => {
@@ -11,12 +11,13 @@ const RestaurantInfo = () => {
  
 
     const fetchInfo = async() =>{
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId" + resId +"&catalog_qa=undefined&submitAction=ENTER")
+        // const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=11208&catalog_qa=undefined&submitAction=ENTER")
+        const data = await fetch(FETCH_INFO + resId)
         const json = await data.json()
 
         console.log("JSON", json)
 
-        console.log("Info", json?.data?.cards[0]?.card?.card?.info?.name)
+        // console.log("Info", json?.data?.cards[0]?.card?.card?.info)
         setResInfo(json.data)
     }
 
@@ -30,7 +31,8 @@ const RestaurantInfo = () => {
 
     console.log("resInfo", resInfo)
 
-    const {name, city, costForTwoMessage, cuisines} = resInfo?.cards[0]?.card?.card?.info;
+    const {  name, city, costForTwoMessage, cuisines} = resInfo?.cards[0]?.card?.card?.info;
+    // console.log("id", id)
 
     const { itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
 
