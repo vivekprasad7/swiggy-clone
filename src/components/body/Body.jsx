@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./Body.css";
 import Card from "../card/Card";
 import { FETCH_URL } from "../../utils/constants.js";
+import { Link, NavLink} from "react-router-dom";
+
 
 const Body = () => {
   
@@ -34,12 +36,12 @@ const Body = () => {
 
     const json = await data.json()
 
-    console.log("JSON", json)
+    // console.log("JSON", json)
 
     setResData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilterData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
-    console.log("Fetch", json?.data?.cards[4]?.card?.card?.brands)
+    // console.log("Fetch", json?.data?.cards[4]?.card?.card?.brands)
   }
 
   return (
@@ -63,8 +65,8 @@ const Body = () => {
 
       <div className="restaurant">
         {filterData?.map((item) => {
-          console.log(item);
-          return <Card key={item?.info?.id} item={item} />;
+          console.log("mamu");
+          return (<Link key={item?.info?.id} to={"/restaurants/" + item?.info?.id}><Card  item={item} /></Link>);
         })}
       </div>
     </div>

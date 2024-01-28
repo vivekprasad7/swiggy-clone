@@ -4,7 +4,7 @@ import { imageURL } from '../../utils/constants'
 
 
 const Card = ({item}) => {
-    console.log(item)
+    // console.log(item)
 
   return (
     <div className='card'>
