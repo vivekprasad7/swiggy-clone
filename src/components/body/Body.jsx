@@ -36,10 +36,10 @@ const Body = () => {
 
     console.log("JSON", json)
 
-    setResData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilterData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setResData(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilterData(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
-    console.log("Fetch", json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    console.log("Fetch", json?.data?.cards[5]?.card?.card?.brands)
   }
 
   return (
