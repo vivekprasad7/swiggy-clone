@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Body.css";
+// import "./Body.css";
 import Card from "../card/Card";
 import { FETCH_URL } from "../../utils/constants.js";
 import { Link, NavLink} from "react-router-dom";
@@ -47,25 +47,26 @@ const Body = () => {
   return (
     <div className="body">
       <div className="hero-tab">
-        <div className="search-unit">
+        <div className="rounded-lg flex">
           <input
+            className="placeholder:italic placeholder:text-slate-400 block bg-white border border-slate-300 rounded-md py-2 px-16  mx-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
             type="search"
             placeholder="Search Your Favorite Food Items"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />
-          <button onClick={() => filterBySearch()} className="search-btn">
+          <button onClick={() => filterBySearch()} className="text-white bg-orange-400 px-4 rounded-lg">
             Search
           </button>
         </div>
         <div className="btn-filter">
-          <button onClick={() => filterByRating()}>Filter Top Rated</button>
+          <button className="text-white bg-orange-400 px-4 py-2 mx-4 rounded-lg my-0" onClick={() => filterByRating()}>Filter Top Rated</button>
         </div>
       </div>
 
       <div className="restaurant">
         {filterData?.map((item) => {
-          console.log("mamu");
+          // console.log("n");
           return (<Link key={item?.info?.id} to={"/restaurants/" + item?.info?.id}><Card  item={item} /></Link>);
         })}
       </div>

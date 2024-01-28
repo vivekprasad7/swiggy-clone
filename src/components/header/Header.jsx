@@ -1,10 +1,10 @@
 import React from 'react'
-import "./Header.css"
+// import "./Header.css"
 import { NavLink} from 'react-router-dom'
 
 const Header = () => {
   return (
-    <div className='header'>
+    <div className=' px-16 flex items-center justify-between shadow-md'>
         <div className='logo-section'>
         <NavLink to="/">
         <div className='logo'>
@@ -13,11 +13,11 @@ const Header = () => {
         </NavLink>
         </div>
        
-        <div className='nav-items'>
-            <ul>
-                <li><NavLink to="/about">About Us</NavLink></li>
-                <li><NavLink to="/contact">Contact</NavLink></li>
-                <li><NavLink to="/cart">Cart</NavLink></li>
+        <div className=' px-6 py-5'>
+            <ul className='flex items-center justify-between gap-10'>
+                <li className='hover:text-orange-400'><NavLink to="/about">About Us</NavLink></li>
+                <li className='hover:text-orange-400'><NavLink to="/contact">Contact</NavLink></li>
+                <li className='hover:text-orange-400'><NavLink to="/cart">Cart</NavLink></li>
             </ul>
         </div>
 
