@@ -7,12 +7,11 @@ const RestaurantInfo = () => {
 
     const [ resInfo, setResInfo] = useState(null)
 
-    const params = useParams()
-    console.log("params",params)
+    const {resId} = useParams()
  
 
     const fetchInfo = async() =>{
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=11208&catalog_qa=undefined&submitAction=ENTER")
+        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId" + resId +"&catalog_qa=undefined&submitAction=ENTER")
         const json = await data.json()
 
         console.log("JSON", json)
