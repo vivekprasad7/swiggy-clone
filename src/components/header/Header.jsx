@@ -18,6 +18,8 @@ const Header = () => {
                 <li className='hover:text-orange-400'><NavLink to="/about">About Us</NavLink></li>
                 <li className='hover:text-orange-400'><NavLink to="/contact">Contact</NavLink></li>
                 <li className='hover:text-orange-400'><NavLink to="/cart">Cart</NavLink></li>
+                <li className='hover:text-orange-400'><NavLink to="/grocery">Grocery</NavLink></li>
+
             </ul>
         </div>
 
