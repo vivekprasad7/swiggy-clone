@@ -1,4 +1,4 @@
-import React from "react";
+import React, {lazy} from "react";
 import ReactDOM from "react-dom/client"
 import Header from "./components/header/Header";
 import Body from "./components/body/Body";
@@ -9,6 +9,9 @@ import Cart from "./pages/cart/Cart";
 import Error from "./pages/error/Error";
 import RestaurantInfo from "./pages/restaurantInfo/RestaurantInfo";
 import Grocery from "./pages/grocery/Grocery";
+
+// different from above imports, it takes path of component
+const Grocery = lazy(() => import("./pages/grocery/Grocery"))
 
 
 const App = () => {
