@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../card/Card";
 import { FETCH_URL } from "../../utils/constants.js";
 import { Link, NavLink} from "react-router-dom";
+import useOnlineStatus from "../../utils/custom_hooks/useOnlineStatus";
 
 
 const Body = () => {
@@ -42,6 +43,12 @@ const Body = () => {
     setFilterData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
     // console.log("Fetch", json?.data?.cards[4]?.card?.card?.brands)
+  }
+
+  const onlineStatus = useOnlineStatus()
+
+  if(!onlineStatus){
+    return (<h1>Looks, like you're offline</h1>)
   }
 
   return (
