@@ -70,7 +70,14 @@ const RestaurantInfo = () => {
             <h2>Menu</h2>
             {
                 itemCategories.map((category, index) => {
-                    return(<Category key={index} category={category} showItems={index === showIndex ? true : false} setShowIndex={() => setShowIndex(index)}/>)
+                    return(
+                    <Category 
+                    key={index} 
+                    index={index} 
+                    category={category} 
+                    showItems={index === showIndex ? true : false} 
+                    setShowIndex={() => setShowIndex(index)} 
+                    setShowItems={setShowItems}/>)
                 })
             }
           
