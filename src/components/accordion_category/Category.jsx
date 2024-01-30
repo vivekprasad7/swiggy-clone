@@ -2,12 +2,10 @@ import React, { useState } from "react";
 
 const Category = ({
   category,
-  index,
   showItems,
-  setShowItems,
   setShowIndex,
 }) => {
-  const [lastCategoryIndex, setLastCategoryIndex] = useState(null);
+//   const [lastCategoryIndex, setLastCategoryIndex] = useState(null);
 
   console.log("show items", showItems);
 
@@ -20,7 +18,6 @@ const Category = ({
   function handleClick() {
    
       setShowIndex();
-      setLastCategoryIndex(index);
   }
 
   return (

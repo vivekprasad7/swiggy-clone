@@ -73,11 +73,10 @@ const RestaurantInfo = () => {
                     return(
                     <Category 
                     key={index} 
-                    index={index} 
                     category={category} 
                     showItems={index === showIndex ? true : false} 
                     setShowIndex={() => setShowIndex(index)} 
-                    setShowItems={setShowItems}/>)
+                    />)
                 })
             }
           
