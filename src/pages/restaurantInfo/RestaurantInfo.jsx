@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { FETCH_INFO } from "../../utils/constants.js";
 import { useParams } from 'react-router-dom';
 import useRestaurantMenu from '../../utils/custom_hooks/useRestaurantMenu.js';
+import Category from '../../components/accordion_category/Category.jsx';
 
 const RestaurantInfo = () => {
 
@@ -41,9 +42,17 @@ const RestaurantInfo = () => {
 
     console.log("itemCards", itemCards)
 
+    const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+
+    const itemCategories = categories.filter((category) => category?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+
+    console.log("categories", categories)
+
+    console.log("item categories", itemCategories)
+
   return (
-    <div>
-        <div className='info-top'>
+    <div className=''>
+        <div className='info-top m-auto'>
             <div className='info-top-left'>
             <h2>{name}</h2>
             <h4>{city}</h4>
@@ -56,11 +65,22 @@ const RestaurantInfo = () => {
         </div>
         <div className='menu'>
             <h2>Menu</h2>
-            <ul>
+            {
+                itemCategories.map((category) => {
+                    return(<Category category={category}/>)
+                })
+            }
+          
+
+
+
+
+
+            {/* <ul>
             {
                 itemCards.map((item) => <li key={item?.card?.info?.id}>{item?.card?.info?.name + "  : " +  "Rs." + (item?.card?.info?.price/100)  }</li> )
             }
-            </ul>
+            </ul> */}
 
         </div>
     </div>
