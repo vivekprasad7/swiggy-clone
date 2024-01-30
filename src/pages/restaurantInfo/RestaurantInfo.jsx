@@ -7,6 +7,9 @@ import Category from '../../components/accordion_category/Category.jsx';
 
 const RestaurantInfo = () => {
 
+    const [showItems, setShowItems] = useState(false)
+    const [showIndex, setShowIndex] = useState(null)
+
     // const [ resInfo, setResInfo] = useState(null)  extracted to custom_hook 
 
     const {resId} = useParams()
@@ -66,8 +69,8 @@ const RestaurantInfo = () => {
         <div className='menu'>
             <h2>Menu</h2>
             {
-                itemCategories.map((category) => {
-                    return(<Category category={category}/>)
+                itemCategories.map((category, index) => {
+                    return(<Category key={index} category={category} showItems={index === showIndex ? true : false} setShowIndex={() => setShowIndex(index)}/>)
                 })
             }
           
