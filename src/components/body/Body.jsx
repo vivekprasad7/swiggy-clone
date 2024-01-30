@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import "./Body.css";
-import Card from "../card/Card";
+import Card, {withVegLablel} from "../card/Card";  // imported Higher Order Component as well
 import { FETCH_URL } from "../../utils/constants.js";
 import { Link, NavLink} from "react-router-dom";
 import useOnlineStatus from "../../utils/custom_hooks/useOnlineStatus";
@@ -51,6 +51,10 @@ const Body = () => {
     return (<h1>Looks, like you're offline</h1>)
   }
 
+  const RestaurantCardPromoted = withVegLablel(Card)  // Higher Order Component
+
+  console.log("Filter Data", filterData)
+
   return (
     <div className="body">
       <div className="bg-black p-16 flex justify-center flex-col items-center">
@@ -73,8 +77,10 @@ const Body = () => {
 
       <div className="restaurant">
         {filterData?.map((item) => {
-          // console.log("n");
-          return (<Link key={item?.info?.id} to={"/restaurants/" + item?.info?.id}><Card  item={item} /></Link>);
+          console.log("n", item);
+          return (<Link key={item?.info?.id} to={"/restaurants/" + item?.info?.id}>
+            {item.info.veg? <RestaurantCardPromoted item={item}/> : <Card  item={item} />}
+            </Link>);
         })}
       </div>
     </div>

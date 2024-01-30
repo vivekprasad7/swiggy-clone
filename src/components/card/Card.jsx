@@ -19,4 +19,21 @@ const Card = ({item}) => {
   )
 }
 
+// Higher Order Component
+
+// input - RestaurantCard => RestaurantCardPromoted
+
+export const withVegLablel = () => {
+  return (props) => {
+    return(
+      <div className='inline-block'>
+        <label className='absolute bg-green-600 text-white m-2 py-1 px-2 rounded-lg'>Veg</label>
+        <Card {...props}/>
+      </div>
+    )
+  }
+}
+
+
+
 export default Card
