@@ -23,8 +23,8 @@ const Category = ({
     setShowIndex()
   }
 
-  function handleAddItem(){
-    dispatch(addItem("pizza"))
+  function handleAddItem(item){
+    dispatch(addItem(item))
 
   }
 
@@ -76,9 +76,9 @@ const Category = ({
                 </div>
 
                 </div>
-                <div className="w-40 h-40 static">
+                <div className="w-40 h-40">
                   <img src={imageURL + imageId} />
-                  <button onClick={handleAddItem} className="absolute bg-orange-400 text-white cursor-pointer m-2 p-2 ">Add</button>
+                  <button onClick={() => handleAddItem(item)} className="absolute bg-orange-400 text-white cursor-pointer m-2 p-2 ">Add</button>
                 </div>
               </div>
             );

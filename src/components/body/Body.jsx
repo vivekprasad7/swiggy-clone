@@ -37,12 +37,15 @@ const Body = () => {
 
     const json = await data.json()
 
-    // console.log("JSON", json)
+    console.log("JSON", json)
 
-    setResData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilterData(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setResData(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilterData(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
-    // console.log("Fetch", json?.data?.cards[4]?.card?.card?.brands)
+    console.log("Fetch1", json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+
+    console.log("Fetch", json?.data?.cards[4]?.card?.card?.brands)
   }
 
   const onlineStatus = useOnlineStatus()
