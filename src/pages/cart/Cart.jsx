@@ -15,7 +15,7 @@ const Cart = () => {
             const { name, price, defaultPrice, imageId, isBestseller, isVeg } =
               item?.card?.info;
             return(
-              <div key={item.id} className=" bg-orange-50 flex justify-between ">
+              <div key={item.id} className=" bg-gray-50 flex justify-between ">
                 <div>
                 <h3 className="p-3">{name}</h3>
                 <h3>Rs. {price /100 || defaultPrice/100}</h3>

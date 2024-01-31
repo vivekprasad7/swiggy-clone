@@ -56,10 +56,10 @@ const RestaurantInfo = () => {
     //console.log("item categories", itemCategories)
 
   return (
-    <div className=''>
-        <div className='info-top m-auto'>
-            <div className='info-top-left'>
-            <h2>{name}</h2>
+    <div className='text-center m-auto p-8'>
+        <div className='info-top m-auto '>
+            <div className='info-top-left p-2'>
+            <h1 className='text-3xl font-bold p-7'>{name}</h1>
             <h4>{city}</h4>
             <h4>{cuisines.join(",")}</h4>
             </div>
@@ -68,8 +68,8 @@ const RestaurantInfo = () => {
             <h3>{costForTwoMessage}</h3>
         </div>
         </div>
-        <div className='menu'>
-            <h2>Menu</h2>
+        <div className=' m-4'>
+            <h2 className='text-2xl' >Menu</h2>
             {
                 itemCategories.map((category, index) => {
                     return(
