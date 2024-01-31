@@ -10,7 +10,7 @@ import Error from "./pages/error/Error";
 import RestaurantInfo from "./pages/restaurantInfo/RestaurantInfo";
 import Grocery from "./pages/grocery/Grocery";
 import { Provider } from "react-redux";
-import appStore from "./redux/AppStore";
+import appStore from "./redux/appStore";
 
 // different from above imports, it takes path of component
 const Grocery = lazy(() => import("./pages/grocery/Grocery"))

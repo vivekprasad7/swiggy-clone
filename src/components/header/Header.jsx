@@ -1,8 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 // import "./Header.css"
 import { NavLink} from 'react-router-dom'
+import cartSlice from '../../redux/cartSlice'
 
 const Header = () => {
+
+  // Subscribing to store using selector
+  const cartItems = useSelector((store) => store.cart.cartItems)
+
+
   return (
     <div className=' px-16 flex items-center justify-between shadow-md'>
         <div className='logo-section'>
@@ -17,7 +24,7 @@ const Header = () => {
             <ul className='flex items-center justify-between gap-10'>
                 <li className='hover:text-orange-400'><NavLink to="/about">About Us</NavLink></li>
                 <li className='hover:text-orange-400'><NavLink to="/contact">Contact</NavLink></li>
-                <li className='hover:text-orange-400'><NavLink to="/cart">Cart</NavLink></li>
+                <li className='hover:text-orange-400'><NavLink to="/cart">Cart - {cartItems.length}</NavLink></li>
                 <li className='hover:text-orange-400'><NavLink to="/grocery">Grocery</NavLink></li>
 
             </ul>
