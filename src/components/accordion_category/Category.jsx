@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import {imageURL} from "../../utils/constants.js"
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/cartSlice";
 
 const Category = ({
   category,
@@ -13,10 +16,16 @@ const Category = ({
 
   const { itemCards } = category?.card?.card;
 
+  const dispatch = useDispatch()
 
 
   function handleClick() {
     setShowIndex()
+  }
+
+  function handleAddItem(){
+    dispatch(addItem("pizza"))
+
   }
 
   // function handleClick() {
@@ -51,16 +60,25 @@ const Category = ({
       </div>
       {showItems
         ? itemCards.map((item) => {
-            const { name, price, imageId, isBestseller, isVeg } =
+
+          console.log("item", item)
+            const { name, price, defaultPrice, imageId, isBestseller, isVeg } =
               item.card.info;
             return (
-              <div key={item.id} className=" bg-gray-100 ">
+              <div key={item.id} className=" bg-orange-50 flex justify-between ">
+                <div>
                 <h3 className="p-3">{name}</h3>
-                <h3>Rs. {price / 100}</h3>
+                <h3>Rs. {price /100 || defaultPrice/100}</h3>
 
                 <div>
                   {isBestseller ? <label>Bestseller</label> : ""}
                   {isVeg ? <label>Veg</label> : ""}
+                </div>
+
+                </div>
+                <div className="w-40 h-40 static">
+                  <img src={imageURL + imageId} />
+                  <button onClick={handleAddItem} className="absolute bg-orange-400 text-white cursor-pointer m-2 p-2 ">Add</button>
                 </div>
               </div>
             );
