@@ -9,6 +9,8 @@ const RestaurantInfo = () => {
 
     const [showItems, setShowItems] = useState(false)
     const [showIndex, setShowIndex] = useState(null)
+    const [lastCategoryIndex, setLastCategoryIndex] = useState(null);
+
 
     // const [ resInfo, setResInfo] = useState(null)  extracted to custom_hook 
 
@@ -36,22 +38,22 @@ const RestaurantInfo = () => {
         return (<h1>Nakli Shimmer</h1>)
     } 
 
-    console.log("resInfo", resInfo)
+    //console.log("resInfo", resInfo)
 
     const {  name, city, costForTwoMessage, cuisines} = resInfo?.cards[0]?.card?.card?.info;
     // console.log("id", id)
 
     const { itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
 
-    console.log("itemCards", itemCards)
+    //console.log("itemCards", itemCards)
 
     const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
 
     const itemCategories = categories.filter((category) => category?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
 
-    console.log("categories", categories)
+    //console.log("categories", categories)
 
-    console.log("item categories", itemCategories)
+    //console.log("item categories", itemCategories)
 
   return (
     <div className=''>
@@ -74,23 +76,11 @@ const RestaurantInfo = () => {
                     <Category 
                     key={index} 
                     category={category} 
-                    showItems={index === showIndex ? true : false} 
-                    setShowIndex={() => setShowIndex(index)} 
+                    showItems={index === showIndex ? true : false }
+                    setShowIndex={() => index === showIndex ?  setShowIndex(null) : setShowIndex(index)} 
                     />)
                 })
             }
-          
-
-
-
-
-
-            {/* <ul>
-            {
-                itemCards.map((item) => <li key={item?.card?.info?.id}>{item?.card?.info?.name + "  : " +  "Rs." + (item?.card?.info?.price/100)  }</li> )
-            }
-            </ul> */}
-
         </div>
     </div>
   )

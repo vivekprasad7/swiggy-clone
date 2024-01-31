@@ -1,24 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
 const Category = ({
   category,
   showItems,
   setShowIndex,
 }) => {
-//   const [lastCategoryIndex, setLastCategoryIndex] = useState(null);
-
-  console.log("show items", showItems);
-
-  // const [ showItems, setShowItems] = useState(false)
+  // console.log("1 show items", showItems);
+  // console.log("1 index", index);
+  // console.log("1 lastCategoryIndex", lastCategoryIndex);
 
   console.log("category", category?.card?.card?.title);
 
   const { itemCards } = category?.card?.card;
 
+
+
   function handleClick() {
-   
-      setShowIndex();
+    setShowIndex()
   }
+
+  // function handleClick() {
+  //   if (index === lastCategoryIndex) {
+  //     setShowItems(!showItems);
+
+  //     console.log("2 show items", showItems);
+  //     console.log("2 index", index);
+  //     console.log("2 lastCategoryIndex", lastCategoryIndex);
+  //   } else {
+  //     setShowIndex();
+  //     setLastCategoryIndex();
+
+  //     console.log("3 show items", showItems);
+  //     console.log("3 index", index);
+  //     console.log("3 lastCategoryIndex", lastCategoryIndex);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   setShowItems(false);
+  // }, [lastCategoryIndex]); // Empty dependency array to mimic componentDidMount
 
   return (
     <div className="w-6/12 m-auto ">
